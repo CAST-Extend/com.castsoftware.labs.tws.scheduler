@@ -1,4 +1,3 @@
-BEGIN_PROGRAM(AHBSPCREQUEST)
 SCHEDULE=AHBSPCREQUEST
   Application text= RUNS VIA USER REQUEST
   Calendar id=
@@ -280,4 +279,3 @@ SCHEDULE=AHBSPCREQUEST
        Job=AHBEND    Internalname=GNNN_254
         Predecessor=ZAH1799B  Internalname=CPU1_071
         Predecessor=ZAH1590B  Internalname=CPU1_061
- END_PROGRAM
