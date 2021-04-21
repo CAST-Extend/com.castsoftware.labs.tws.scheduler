@@ -1,0 +1,283 @@
+BEGIN_PROGRAM(AHBSPCREQUEST)
+SCHEDULE=AHBSPCREQUEST
+  Application text= RUNS VIA USER REQUEST
+  Calendar id=
+  Priority=  5
+  Nbr of Run Cycles=   1
+  Nbr of Operations=  80
+  Last Updated=06/05/00
+  OFFSETBASEDRUNCYCLE1
+    Valid From=04/12/00
+    Status=ACTIVE
+    Period Name=REQUEST
+    RC Type=NORMAL
+    Input Arrive=00.01
+    Input Deadline=23.59
+    Free Day Rule=NO MOVE
+    Run Days= 001
+    Run Cycle Description=FOR DEPENDENCY RESOLUTION ONLY
+
+       Job=USEROKAY  Internalname=HSTR_002
+
+       Job=OAH003DB  Internalname=OPST_004
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=OAHB1560  Internalname=OPST_005
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=OAH014AB  Internalname=OPST_006
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=OAH400BB  Internalname=OPST_007
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=OAH406AB  Internalname=OPST_008
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=OAH550AB  Internalname=OPST_009
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1015B  Internalname=CPU1_010
+        Predecessor=OAH014AB  Internalname=OPST_006
+
+       Job=ZAH1401B  Internalname=CPU1_011
+        Predecessor=OAH400BB  Internalname=OPST_007
+
+       Job=ZAH1407B  Internalname=CPU1_012
+        Predecessor=OAH406AB  Internalname=OPST_008
+
+       Job=ZAH1551B  Internalname=CPU1_013
+        Predecessor=OAH550AB  Internalname=OPST_009
+
+       Job=ZAH1166B  Internalname=CPU1_014
+        Predecessor=OAH003DB  Internalname=OPST_004
+
+       Job=ZAH1167B  Internalname=CPU1_015
+        Predecessor=OAH003DB  Internalname=OPST_004
+
+       Job=ZAH1000B  Internalname=CPU1_020
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1676B  Internalname=CPU1_021
+        Predecessor=ZAH1000B  Internalname=CPU1_020
+
+       Job=ZAH1001B  Internalname=HOLD_022
+        Predecessor=ZAH1000B  Internalname=CPU1_020
+
+       Job=ZAH1014B  Internalname=CPU1_023
+        Predecessor=ZAH1001B  Internalname=HOLD_022
+
+       Job=ZAH1003B  Internalname=CPU1_024
+        Predecessor=ZAH1014B  Internalname=CPU1_023
+
+       Job=ZAH1030B  Internalname=CPU1_025
+        Predecessor=ZAH1166B  Internalname=CPU1_014
+        Predecessor=ZAH1167B  Internalname=CPU1_015
+        Predecessor=ZAH1003B  Internalname=CPU1_024
+
+       Job=ZAH1008B  Internalname=CPU1_026
+        Predecessor=ZAH1030B  Internalname=CPU1_025
+
+       Job=ZAH1400B  Internalname=CPU1_027
+        Predecessor=ZAH1008B  Internalname=CPU1_026
+
+       Job=ZAH1130B  Internalname=CPU1_028
+        Predecessor=ZAH1400B  Internalname=CPU1_027
+
+       Job=ZAH1105B  Internalname=CPU1_029
+        Predecessor=ZAH1130B  Internalname=CPU1_028
+
+       Job=ZAH1408B  Internalname=CPU1_030
+        Predecessor=ZAH1105B  Internalname=CPU1_029
+        Predecessor=ZAH1166B  Internalname=CPU1_014
+        Predecessor=ZAH1167B  Internalname=CPU1_015
+
+       Job=ZAH1456B  Internalname=CPU1_031
+        Predecessor=ZAH1408B  Internalname=CPU1_030
+
+       Job=ZAH1406B  Internalname=CPU1_032
+        Predecessor=ZAH1408B  Internalname=CPU1_030
+
+       Job=ZAH1980B  Internalname=CPU1_033
+        Predecessor=ZAH1406B  Internalname=CPU1_032
+
+       Job=ZAH1230B  Internalname=CPU1_034
+        Predecessor=ZAH1406B  Internalname=CPU1_032
+
+       Job=ZAH1110B  Internalname=CPU1_035
+        Predecessor=ZAH1230B  Internalname=CPU1_034
+
+       Job=ZAH1409B  Internalname=CPU1_036
+        Predecessor=ZAH1110B  Internalname=CPU1_035
+
+       Job=ZAH1475B  Internalname=CPU1_037
+        Predecessor=ZAH1409B  Internalname=CPU1_036
+
+       Job=ZAH1500B  Internalname=CPU1_038
+        Predecessor=ZAH1475B  Internalname=CPU1_037
+
+       Job=ZAH1501B  Internalname=CPU1_039
+        Predecessor=ZAH1500B  Internalname=CPU1_038
+
+       Job=ZAH1505B  Internalname=CPU1_040
+        Predecessor=ZAH1501B  Internalname=CPU1_039
+
+       Job=ZAH1550B  Internalname=CPU1_041
+        Predecessor=ZAH1500B  Internalname=CPU1_038
+
+       Job=ZAH1790B  Internalname=CPU1_042
+        Predecessor=ZAH1550B  Internalname=CPU1_041
+
+       Job=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1790B  Internalname=CPU1_042
+
+       Job=ZAH1700B  Internalname=CPU1_044
+        Predecessor=ZAH1704B  Internalname=CPU1_046
+
+       Job=ZAH1702B  Internalname=CPU1_045
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1704B  Internalname=CPU1_046
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1301B  Internalname=CPU1_047
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1302B  Internalname=CPU1_048
+        Predecessor=ZAH1702B  Internalname=CPU1_045
+
+       Job=ZAH1566B  Internalname=CPU1_049
+        Predecessor=ZAH1302B  Internalname=CPU1_048
+
+       Job=ZAH1971B  Internalname=CPU1_050
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1981B  Internalname=CPU1_051
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1998B  Internalname=CPU1_052
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1905B  Internalname=CPU1_053
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1567B  Internalname=CPU1_060
+        Predecessor=ZAH1981B  Internalname=CPU1_051
+        Predecessor=ZAH1980B  Internalname=CPU1_033
+
+       Job=ZAH1910B  Internalname=CPU1_054
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+
+       Job=ZAH1915B  Internalname=CPU1_055
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1567B  Internalname=CPU1_060
+
+       Job=ZAH1900B  Internalname=CPU1_056
+        Predecessor=ZAH1910B  Internalname=CPU1_054
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH1920B  Internalname=CPU1_057
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1567B  Internalname=CPU1_060
+
+       Job=ZAH1940B  Internalname=CPU1_058
+        Predecessor=ZAH1980B  Internalname=CPU1_033
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1981B  Internalname=CPU1_051
+
+       Job=ZAH1941B  Internalname=CPU1_059
+        Predecessor=ZAH1300B  Internalname=CPU1_043
+        Predecessor=ZAH1301B  Internalname=CPU1_047
+
+       Job=ZAH1567B  Internalname=CPU1_060
+        Predecessor=OAHB1560  Internalname=OPST_005
+        Predecessor=ZAH1551B  Internalname=CPU1_013
+        Predecessor=ZAH1302B  Internalname=CPU1_048
+        Predecessor=ZAH1565B  Internalname=CPU1_091
+
+       Job=ZAH1590B  Internalname=CPU1_061
+        Predecessor=ZAH1567B  Internalname=CPU1_060
+
+       Job=ZAH1568B  Internalname=CPU1_062
+        Predecessor=OAHB1560  Internalname=OPST_005
+
+       Job=ZAH1581B  Internalname=CPU1_063
+        Predecessor=OAHB1560  Internalname=OPST_005
+        Predecessor=ZAH1301B  Internalname=CPU1_047
+        Predecessor=ZAH1302B  Internalname=CPU1_048
+        Predecessor=ZAH1702B  Internalname=CPU1_045
+        Predecessor=ZAH1704B  Internalname=CPU1_046
+
+       Job=ZAH1709B  Internalname=CPU1_064
+        Predecessor=OAHB1560  Internalname=OPST_005
+
+       Job=ZAH1703B  Internalname=CPU1_065
+        Predecessor=ZAH1567B  Internalname=CPU1_060
+        Predecessor=ZAH1702B  Internalname=CPU1_045
+
+       Job=ZAH171BB  Internalname=CPU1_066
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH172BB  Internalname=CPU1_067
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH173BB  Internalname=CPU1_068
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH174BB  Internalname=CPU1_069
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH175BB  Internalname=CPU1_070
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+
+       Job=ZAH1799B  Internalname=CPU1_071
+        Predecessor=ZAH1703B  Internalname=CPU1_065
+        Predecessor=ZAH1568B  Internalname=CPU1_062
+        Predecessor=ZAH1581B  Internalname=CPU1_063
+        Predecessor=ZAH1709B  Internalname=CPU1_064
+
+       Job=OAH560AB  Internalname=OPST_080
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1561B  Internalname=CPU1_081
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=ZAH1562B  Internalname=CPU1_082
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=ZAH1563B  Internalname=CPU1_083
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=ZAH1564B  Internalname=CPU1_084
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=ZAH1570B  Internalname=CPU1_085
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=ZAH1571B  Internalname=CPU1_086
+        Predecessor=OAH560AB  Internalname=OPST_080
+
+       Job=OAH560CB  Internalname=OPST_090
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1565B  Internalname=CPU1_091
+        Predecessor=OAH560CB  Internalname=OPST_090
+
+       Job=OAH560DB  Internalname=OPST_092
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1706B  Internalname=NOX_093
+        Predecessor=OAH560DB  Internalname=OPST_092
+
+       Job=OAH104DB  Internalname=OPST_095
+        Predecessor=USEROKAY  Internalname=HSTR_002
+
+       Job=ZAH1166B  Internalname=CPU1_014
+        Predecessor=OAH104DB  Internalname=OPST_095
+
+       Job=ZAH1167B  Internalname=CPU1_015
+        Predecessor=OAH104DB  Internalname=OPST_095
+
+       Job=AHBEND    Internalname=GNNN_254
+        Predecessor=ZAH1799B  Internalname=CPU1_071
+        Predecessor=ZAH1590B  Internalname=CPU1_061
+ END_PROGRAM
