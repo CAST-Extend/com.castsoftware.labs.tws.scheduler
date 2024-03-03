@@ -1,0 +1,77 @@
+//EXPL7001 JOB (514),CLASS=P,USER=CICPLOC,                              
+//         MSGLEVEL=(1,1),MSGCLASS=X,NOTIFY=&SYSUID                     
+//*                                                                     
+//LIBSRCH  JCLLIB ORDER=LXEXPL0.INCLUDE.JCL -->LIB. INCLUDE MEMBER      
+//*--------------------------------------------------------------       
+//DELFIC10 EXEC PGM=IDCAMS                                              
+//SYSPRINT DD SYSOUT=*                                                  
+//SYSIN    DD *                                                         
+  DELETE  EXPL7.JCLTWS04.EQQADPRT               NONVSAM SCRATCH         
+  DELETE  EXPL7.JCLTWS05.EQQADPRT               NONVSAM SCRATCH         
+          IF MAXCC = 8 THEN SET MAXCC = 0                               
+//***-----------------------------------------------------------------  
+//***-----------------------------------------------------------------  
+//**IJ IMPRESSION DETAIL DES APPLICATIONS                               
+//* =PARAMETERS(ABCDEFGHIJ)                                             
+//*    A = 1 APPLICATIONS, A = 2 DEPENDENCIES, A = 3 OPERATIONS         
+//*    A = 4 APPLIC VS OWNER                                            
+//*    B = 1 ALL APLICATIONS, B = 2 SELECTED ITEM, B = 3 FROM FILE      
+//*    CDEFGH = (YYMMDD)                                                
+//*    IJ = NUMBER OF ITEMS                                             
+//**IO                                                                  
+//***-----------------------------------------------------------------  
+//STEP0050 EXEC PGM=EQQBATCH,PARM='EQQADPRT',REGION=2048K               
+//EQQMLIB  INCLUDE MEMBER=EQQMLIB                                       
+//EQQPARM  DD DISP=SHR,DSN=IWSV9R5.OPCPROD.PARM(EXPL7)                  
+//ADREPORT DD DSN=EXPL7.JCLTWS04.EQQADPRT,                              
+//            DISP=(,CATLG,DELETE),                                     
+//            DCB=(LRECL=220,RECFM=FB),                                 
+//            UNIT=(VERTEMP,6),SPACE=(TRK,(45,30),RLSE)                 
+//ADREPRT2 DD DCB=(RECFM=FBA,LRECL=121),                                
+//         SPACE=(CYL,(3,1)),DISP=(NEW,DELETE),UNIT=3390                
+//ADPRIN   DD DCB=(LRECL=200,RECFM=FB),                                 
+//         SPACE=(CYL,(3,1)),DISP=(NEW,DELETE),UNIT=3390                
+//ADPROUT  DD DCB=(LRECL=200,RECFM=FB),                                 
+//         SPACE=(CYL,(3,1)),DISP=(NEW,DELETE),UNIT=3390                
+//EQQMLOG  DD SYSOUT=*                                                  
+//SYSOUT   DD SYSOUT=*                                    
+//SYSPRINT DD SYSOUT=*                                    
+//SYSMDUMP DD SYSOUT=*                                    
+//EQQDUMP  DD SYSOUT=*                                    
+//EQQDMSG  DD SYSOUT=*                                    
+//ADWKIN   DD DCB=(LRECL=220,RECFM=FB),                   
+//         SPACE=(CYL,(3,1)),DISP=(,DELETE),UNIT=3390     
+//ADWKOUT  DD DCB=(LRECL=220,RECFM=FB),                   
+//         SPACE=(CYL,(3,1)),DISP=(,DELETE),UNIT=3390     
+//ADDPIN   DD DCB=(LRECL=220,RECFM=FB),                   
+//         SPACE=(CYL,(3,3)),DISP=(,DELETE),UNIT=(VERWORK,
+//ADDPOUT  DD DCB=(LRECL=220,RECFM=FB),                   
+//         SPACE=(CYL,(3,3)),DISP=(,DELETE),UNIT=(VERWORK,
+//SORT01   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT02   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT03   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT04   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT05   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT06   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT07   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT08   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//SORT09   DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6),        
+//           DCB=(LRECL=220,RECFM=FB)                     
+//ADDPWK01 DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6)         
+//ADDPWK02 DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6)         
+//ADDPWK03 DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6)         
+//ADDPWK04 DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6)         
+//ADDPWK05 DD SPACE=(CYL,(13,3)),UNIT=(VERWORK,6)         
+//EQQADDS  DD DSN=IWSV9R5.OPCPROD.AD,DISP=SHR             
+//EQQAD2DS  DD DSN=IWSV9R5.OPCPROD.AD,DISP=SHR    
+//SYSIN    DD *                                              
+2100000001                                                   
+/*                                                                   
